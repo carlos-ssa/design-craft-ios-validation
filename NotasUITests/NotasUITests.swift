@@ -60,6 +60,7 @@ final class NotasUITests: XCTestCase {
         XCTAssertTrue(row.waitForExistence(timeout: 5))
         XCTAssertEqual(rows.count, 1)
         XCTAssertEqual(row.label, "Reunião")
+        XCTAssertTrue((row.value as? String ?? "").contains("Próximos passos"))
         XCTAssertTrue((row.value as? String ?? "").contains("atualizado"))
     }
 
@@ -121,6 +122,19 @@ final class NotasUITests: XCTestCase {
         app.buttons["notes.new"].tap()
         XCTAssertTrue(app.textFields["notes.title"].waitForExistence(timeout: 5))
         keepScreenshot("ios-form")
+        try app.performAccessibilityAudit()
+        app.buttons["notes.cancel"].tap()
+        let sheet = app.sheets["Descartar alterações?"]
+        XCTAssertTrue(sheet.waitForExistence(timeout: 5))
+        let leaves = sheet.buttons.matching(identifier: "notes.discard").allElementsBoundByIndex.filter {
+            $0.buttons.matching(identifier: "notes.discard").count == 0
+        }
+        XCTAssertEqual(leaves.count, 1)
+        guard let discard = leaves.only else { return }
+        discard.tap()
+        createNote()
+        assertRow(title: "Reunião", body: "Próximos passos")
+        keepScreenshot("ios-populated-list")
         try app.performAccessibilityAudit()
     }
 }

@@ -65,17 +65,38 @@ try:
     (OUT/'test-summary.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
     passed=int(data['passedTests']);failed=int(data['failedTests']);skipped=int(data.get('skippedTests',0))
     total=int(data.get('totalTestCount',passed+failed+skipped))
-    expected=json.loads((ROOT/'project-model.json').read_text(encoding='utf-8'))['source_test_methods']
+    planned=json.loads((ROOT/'tools/benchmark-test-plan.json').read_text(encoding='utf-8'))
+    if not isinstance(planned,list) or not planned or len(planned)!=len(set(planned)):
+        raise ValueError('Benchmark plan must contain unique test identifiers')
+    expected=len(planned)
 except (ValueError,KeyError,TypeError) as error:
     report['reason']='Unrecognized xcresult summary; no successful count inferred: '+str(error);finish('result_unverified',3)
 report.update(passed_tests=passed,failed_tests=failed,skipped_tests=skipped,total_tests=total,expected_test_methods=expected)
+tree=bounded(['xcrun','xcresulttool','get','test-results','tests','--path',str(bundle)],'read_test_identities',capture=True,check=False)
+try:
+    if tree.returncode:raise ValueError(tree.stderr)
+    nodes=json.loads(tree.stdout)
+    (OUT/'test-identities.json').write_text(json.dumps(nodes,indent=2)+'\n',encoding='utf-8')
+    cases=[]
+    def collect(value):
+        if isinstance(value,dict):
+            if value.get('nodeType')=='Test Case':cases.append((value['nodeIdentifier'],value.get('result')))
+            for child in value.values():collect(child)
+        elif isinstance(value,list):
+            for child in value:collect(child)
+    collect(nodes)
+    report['test_identity_plan_matches']=(len(cases)==expected and {name for name,_ in cases}==set(planned))
+    report['all_planned_identities_passed']=report['test_identity_plan_matches'] and all(status=='Passed' for _,status in cases)
+except (ValueError,KeyError,TypeError) as error:
+    report['test_identity_error']=str(error)
+    report['all_planned_identities_passed']=False
 attachment_out=OUT/'attachments'
 export=bounded(['xcrun','xcresulttool','export','attachments','--path',str(bundle),'--output-path',str(attachment_out)],'export_visual_evidence',timeout=120,capture=True,check=False)
 report['attachments_export_exit']=export.returncode
 report['screenshots']=[str(p.relative_to(OUT)) for p in attachment_out.rglob('*.png')] if attachment_out.exists() else []
 report['visual_review_pending']=True
 if export.returncode!=0:report['attachments_export_warning']=export.stderr
-if result.returncode!=0 or total!=expected or passed!=expected or failed>0 or skipped>0:
+if result.returncode!=0 or total!=expected or passed!=expected or failed>0 or skipped>0 or not report['all_planned_identities_passed']:
     report['reason']='Full planned set did not pass; skipped or missing tests are not successful evidence'
     finish('native_checks_incomplete_or_failed',1)
 finish('passed',0)

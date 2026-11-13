@@ -1,0 +1,14 @@
+[
+  "NotesStoreTests/testAddEditAndReload()",
+  "NotesStoreTests/testDraftSurvivesReloadAndDiscardPreservesNotes()",
+  "NotesStoreTests/testInvalidJSONIsPreservedAndBlocksWrites()",
+  "NotesStoreTests/testSemanticallyInvalidEnvelopesArePreservedAndBlockWrites()",
+  "NotesStoreTests/testValidationAndRepeatedSaveDoNotDuplicate()",
+  "NotasUITests/testAccessibilityAuditAndVisualEvidence()",
+  "NotasUITests/testAccessibleNamesAndRoles()",
+  "NotasUITests/testCreatePersistsAcrossRelaunch()",
+  "NotasUITests/testDiscardDraft()",
+  "NotasUITests/testEditNote()",
+  "NotasUITests/testInjectedLargeTypeCanCreate()",
+  "NotasUITests/testValidationRecovery()"
+]

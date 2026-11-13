@@ -1,5 +1,11 @@
 import SwiftUI
 
+private let noteActionTint = Color(uiColor: UIColor { traits in
+    traits.userInterfaceStyle == .dark
+        ? UIColor(red: 0.44, green: 0.72, blue: 1, alpha: 1)
+        : UIColor(red: 0, green: 0.35, blue: 0.78, alpha: 1)
+})
+
 @main
 struct NotasApp: App {
     @StateObject private var store: NotesStore
@@ -24,6 +30,7 @@ struct NotasApp: App {
                     NotesHome(store: store)
                 }
             }
+            .tint(noteActionTint)
         }
     }
 }
@@ -47,9 +54,12 @@ private struct NotesHome: View {
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(note.title).font(.headline)
-                            Text(note.body).font(.subheadline).foregroundStyle(.secondary).lineLimit(2)
+                            Text(note.body).font(.subheadline).foregroundStyle(.primary).lineLimit(2)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
                     }
+                    .buttonStyle(.plain)
                     .accessibilityLabel(note.title)
                     .accessibilityValue(note.body)
                     .accessibilityIdentifier("notes.row.\(note.id.uuidString)")
@@ -89,16 +99,20 @@ private struct NoteEditor: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Título") {
-                    TextField("Título da nota", text: $draft.title)
+                Section {
+                    TextField("", text: $draft.title)
                         .accessibilityLabel("Título")
                         .accessibilityIdentifier("notes.title")
+                } header: {
+                    Text("Título").foregroundStyle(.primary)
                 }
-                Section("Conteúdo") {
+                Section {
                     TextEditor(text: $draft.body)
                         .frame(minHeight: 150)
                         .accessibilityLabel("Conteúdo")
                         .accessibilityIdentifier("notes.body")
+                } header: {
+                    Text("Conteúdo").foregroundStyle(.primary)
                 }
                 if let error = store.error {
                     Section { Text(error).accessibilityIdentifier("notes.status") }
