@@ -6,7 +6,7 @@ permissions:
 jobs:
   simulator:
     runs-on: macos-15-intel
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, resolved 2026-11-13
       - name: Locate prepared fixture
@@ -22,7 +22,7 @@ jobs:
           fi
       - name: Build and test on iOS Simulator
         shell: bash
-        run: python3 "$FIXTURE_ROOT/tools/run-native.py"
+        run: python3 -u "$FIXTURE_ROOT/tools/run-native.py"
       - name: Upload native evidence even on failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4, resolved 2026-11-13

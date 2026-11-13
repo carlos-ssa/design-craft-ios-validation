@@ -39,7 +39,7 @@ private struct NotesHome: View {
                     Text(error).foregroundStyle(.primary).accessibilityIdentifier("notes.status")
                 }
                 if store.notes.isEmpty {
-                    ContentUnavailableView("Nenhuma nota", systemImage: "note.text", description: Text("Crie uma nota para começar."))
+                    ContentUnavailableView("Nenhuma nota", systemImage: "note.text", description: Text("Crie uma nota para começar.").foregroundStyle(.primary))
                 }
                 ForEach(store.notes) { note in
                     Button {

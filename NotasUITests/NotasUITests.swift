@@ -8,6 +8,7 @@ final class NotasUITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments = ["--uitesting", "--fixture-reset"]
         app.launch()
+        XCTAssertTrue(app.buttons["notes.new"].waitForExistence(timeout: 60))
     }
 
     private var rows: XCUIElementQuery {
@@ -42,11 +43,11 @@ final class NotasUITests: XCTestCase {
     func testCreatePersistsAcrossRelaunch() {
         createNote()
         assertRow(title: "Reunião", body: "Próximos passos")
-        keepScreenshot("ios-note-reloaded")
         app.terminate()
         app.launchArguments = ["--uitesting"]
         app.launch()
         assertRow(title: "Reunião", body: "Próximos passos")
+        keepScreenshot("ios-note-reloaded")
     }
 
     func testEditNote() {
@@ -80,7 +81,18 @@ final class NotasUITests: XCTestCase {
         let title = app.textFields["notes.title"]
         title.tap(); title.typeText("Descartar")
         app.buttons["notes.cancel"].tap()
-        app.buttons["notes.discard"].tap()
+        let sheet = app.sheets["Descartar alterações?"]
+        XCTAssertTrue(sheet.waitForExistence(timeout: 5))
+        // SwiftUI exposes a wrapper and its child with the same identifier.
+        // Require exactly one actionable leaf instead of choosing an arbitrary match.
+        let leaves = sheet.buttons.matching(identifier: "notes.discard").allElementsBoundByIndex.filter {
+            $0.buttons.matching(identifier: "notes.discard").count == 0
+        }
+        XCTAssertEqual(leaves.count, 1)
+        guard let discard = leaves.only else { return }
+        XCTAssertEqual(discard.label, "Descartar")
+        XCTAssertTrue(discard.isHittable)
+        discard.tap()
         XCTAssertTrue(app.buttons["notes.new"].waitForExistence(timeout: 5))
         XCTAssertEqual(rows.count, 0)
     }
@@ -111,4 +123,8 @@ final class NotasUITests: XCTestCase {
         keepScreenshot("ios-form")
         try app.performAccessibilityAudit()
     }
+}
+
+private extension Array {
+    var only: Element? { count == 1 ? self[0] : nil }
 }
