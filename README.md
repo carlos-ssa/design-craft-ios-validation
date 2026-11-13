@@ -1,6 +1,8 @@
-# Notas de trabalho — validação iOS
+# Interface Forge — teste complementar iOS
 
-App nativo SwiftUI para exercitar a Design Craft em iPhone/iPad. Inclui notas, criação/edição, validação, persistência atômica de notas e rascunho, recuperação e preservação de arquivo inválido.
+> A skill completa de front-end, UI e UX para **web, Android e iOS** está em [carlos-ssa/interface-forge](https://github.com/carlos-ssa/interface-forge).
+
+Este repositório contém apenas o app nativo SwiftUI para validar a parte iOS da Interface Forge, anteriormente chamada Design Craft. O destino deste fixture é iPhone/iPad. Inclui notas, criação/edição, validação, persistência atômica de notas e rascunho, recuperação e preservação de arquivo inválido.
 
 **Estado: rodada encerrada pelo usuário, com iOS não aprovado e reteste pendente.** A primeira execução em Simulator passou em9/12 e a última em10/12, sem skips. As últimas correções estão salvas no commit4b33075, mas o GitHub bloqueou o reteste antes de iniciar o runner por cobrança/limite da conta. Gerar um `.xcodeproj` ou fazer análise de código no Windows não aprova o iOS.
 
@@ -26,9 +28,9 @@ Erros de build, testes falhos, ausência de runtime ou resultado ilegível não 
 
 ## Execução remota preparada
 
-O workflow em `.github/workflows/ios-validation.yml` usa runner macOS15 Intel e ações fixadas por commit. Ele aceita o fixture na raiz de um repositório de testes ou dentro deste workspace e só tem disparo manual. O usuário autorizou criar o repositório privado [carlos-ssa/design-craft-ios-validation](https://github.com/carlos-ssa/design-craft-ios-validation). A primeira tentativa terminou sem runner por capacidade ARM64, sem executar o código. A primeira execução Intel compilou e executou12 casos, com9 aprovados. O consumo de runner depende da conta/plano do provedor.
+O workflow em `.github/workflows/ios-validation.yml` usa runner macOS15 Intel e ações fixadas por commit. Ele aceita o fixture na raiz de um repositório de testes ou dentro deste workspace e só tem disparo manual. O usuário autorizou criar o repositório inicialmente privado [carlos-ssa/design-craft-ios-validation](https://github.com/carlos-ssa/design-craft-ios-validation). A primeira tentativa terminou sem runner por capacidade ARM64, sem executar o código. A primeira execução Intel compilou e executou12 casos, com9 aprovados. O consumo de runner depende da conta/plano do provedor.
 
-O repositório privado já foi criado e Actions está habilitado. O artefato `ios-native-evidence` contém os resultados de cada execução; não se deve confiar apenas no check verde sem conferir `run.json`, identidades e `.xcresult`. `inspect-evidence.yml` extrai resumos e anexos de uma execução anterior em macOS quando necessário. Se o resumo principal estiver ilegível, o runner pode encerrar antes da exportação de anexos; o bundle bruto continua no upload para esse diagnóstico separado.
+O repositório foi posteriormente tornado público a pedido do usuário. Actions está habilitado; o último reteste foi bloqueado antes de iniciar o runner, conforme o estado registrado acima. O artefato `ios-native-evidence` contém os resultados de cada execução; não se deve confiar apenas no check verde sem conferir `run.json`, identidades e `.xcresult`. `inspect-evidence.yml` extrai resumos e anexos de uma execução anterior em macOS quando necessário. Se o resumo principal estiver ilegível, o runner pode encerrar antes da exportação de anexos; o bundle bruto continua no upload para esse diagnóstico separado.
 
 ## Limites dos testes
 
