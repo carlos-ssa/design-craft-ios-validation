@@ -35,16 +35,19 @@ if platform.system()!='Darwin' or not shutil.which('xcodebuild') or not shutil.w
     finish('environment_unavailable',2)
 bounded([sys.executable,str(ROOT/'tools/generate-project.py')],'generate_project')
 report['xcode']=bounded(['xcodebuild','-version'],'xcode_version',capture=True).stdout.strip()
+sdk=bounded(['xcrun','--sdk','iphonesimulator','--show-sdk-version'],'simulator_sdk_version',capture=True).stdout.strip()
+requested_runtime=os.environ.get('IOS_RUNTIME',sdk)
+report['simulator_sdk_version']=sdk;report['requested_runtime']=requested_runtime
 try:devices=json.loads(bounded(['xcrun','simctl','list','devices','available','--json'],'discover_simulators',capture=True).stdout)['devices']
 except (ValueError,KeyError,TypeError) as error:
     report['reason']='Simulator inventory could not be verified:'+str(error);finish('result_unverified',3)
 candidates=[]
 for runtime,items in devices.items():
-    if 'iOS-' not in runtime:continue
+    if runtime.split('SimRuntime.')[-1]!='iOS-'+requested_runtime.replace('.','-'):continue
     for device in items:
         if device.get('isAvailable') and device['name'].startswith('iPhone'):candidates.append((runtime,device))
 if not candidates:
-    report['reason']='No available iPhone Simulator runtime; do not count this condition as approval'
+    report['reason']='No available iPhone Simulator for requested runtime '+requested_runtime+'; do not count this condition as approval'
     finish('environment_unavailable',2)
 runtime,device=sorted(candidates,key=lambda item:(item[0],item[1]['name']))[-1]
 report['simulator']={'runtime':runtime,'name':device['name'],'udid':device['udid']}

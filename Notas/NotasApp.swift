@@ -46,7 +46,22 @@ private struct NotesHome: View {
                     Text(error).foregroundStyle(.primary).accessibilityIdentifier("notes.status")
                 }
                 if store.notes.isEmpty {
-                    ContentUnavailableView("Nenhuma nota", systemImage: "note.text", description: Text("Crie uma nota para começar.").foregroundStyle(.primary))
+                    VStack(spacing: 12) {
+                        Image(systemName: "note.text")
+                            .font(.system(size: 44))
+                            .foregroundStyle(.secondary)
+                            .accessibilityHidden(true)
+                        Text("Nenhuma nota")
+                            .font(.title2.weight(.semibold))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.vertical, 4)
+                        Text("Crie uma nota para começar.")
+                            .foregroundStyle(.primary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 24)
                 }
                 ForEach(store.notes) { note in
                     Button {

@@ -54,14 +54,17 @@ final class NotasUITests: XCTestCase {
         createNote()
         rows.firstMatch.tap()
         let body = app.textViews["notes.body"]
-        body.tap(); body.typeText(" atualizado")
+        XCTAssertTrue(body.waitForExistence(timeout: 5))
+        XCTAssertEqual(body.value as? String, "Próximos passos")
+        body.tap(); body.typeText(" updated")
+        XCTAssertEqual(body.value as? String, "Próximos passos updated")
+        keepScreenshot("ios-edited-before-save")
         app.buttons["notes.save"].tap()
-        let row = rows.firstMatch
-        XCTAssertTrue(row.waitForExistence(timeout: 5))
-        XCTAssertEqual(rows.count, 1)
-        XCTAssertEqual(row.label, "Reunião")
-        XCTAssertTrue((row.value as? String ?? "").contains("Próximos passos"))
-        XCTAssertTrue((row.value as? String ?? "").contains("atualizado"))
+        assertRow(title: "Reunião", body: "Próximos passos updated")
+        app.terminate()
+        app.launchArguments = ["--uitesting"]
+        app.launch()
+        assertRow(title: "Reunião", body: "Próximos passos updated")
     }
 
     func testValidationRecovery() {
