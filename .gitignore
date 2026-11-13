@@ -1,0 +1,6 @@
+evidence/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+__pycache__/
+*.pyc

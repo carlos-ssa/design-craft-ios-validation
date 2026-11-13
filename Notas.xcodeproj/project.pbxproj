@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	"archiveVersion" = 1;
+	"classes" = {
+	};
+	"objectVersion" = 56;
+	"objects" = {
+		"76A9276B9748C44E7D8EE0D8" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "NotesStore.swift";
+			"sourceTree" = "<group>";
+		};
+		"9E09862F63D4979E78F97295" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "76A9276B9748C44E7D8EE0D8";
+		};
+		"43079A071F35032BC8869ACE" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "NotasApp.swift";
+			"sourceTree" = "<group>";
+		};
+		"E2CBABF6A9377D2C2E33079F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "43079A071F35032BC8869ACE";
+		};
+		"9F24DD8577F827FB59E844C0" = {
+			"isa" = "PBXGroup";
+			"path" = "Notas";
+			"sourceTree" = "<group>";
+			"children" = (
+				"76A9276B9748C44E7D8EE0D8",
+				"43079A071F35032BC8869ACE",
+			);
+		};
+		"FE88ED4F4FC0F568FE8C0AB9" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"includeInIndex" = 0;
+			"path" = "Notas.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"8D2C28AAD84C26B7F2A3E342" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"9E09862F63D4979E78F97295",
+				"E2CBABF6A9377D2C2E33079F",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"FBC58CF20D1671EB55877662" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"FE6EEBC50974553EAC3BBF56" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"A201C258067C8421D33E67B9" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.designcraft.notas";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0";
+				"INFOPLIST_KEY_CFBundleDisplayName" = "Notas de trabalho";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation" = "YES";
+				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"ENABLE_TESTABILITY" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"54FE577AFB0B92228BBBB15E" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.designcraft.notas";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0";
+				"INFOPLIST_KEY_CFBundleDisplayName" = "Notas de trabalho";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation" = "YES";
+				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+			};
+		};
+		"345A5AF3A0D3F73D47F6BD03" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"A201C258067C8421D33E67B9",
+				"54FE577AFB0B92228BBBB15E",
+			);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"7EBF7D93D1B3B47ECBC60817" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "Notas";
+			"productName" = "Notas";
+			"productType" = "com.apple.product-type.application";
+			"productReference" = "FE88ED4F4FC0F568FE8C0AB9";
+			"buildConfigurationList" = "345A5AF3A0D3F73D47F6BD03";
+			"buildPhases" = (
+				"8D2C28AAD84C26B7F2A3E342",
+				"FBC58CF20D1671EB55877662",
+				"FE6EEBC50974553EAC3BBF56",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+			);
+		};
+		"2C958E6DCD93481AB9F52553" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "NotesStoreTests.swift";
+			"sourceTree" = "<group>";
+		};
+		"E908254F9F3C930B858318B8" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "2C958E6DCD93481AB9F52553";
+		};
+		"719BA4C0B894AB63EE8D3170" = {
+			"isa" = "PBXGroup";
+			"path" = "NotasTests";
+			"sourceTree" = "<group>";
+			"children" = (
+				"2C958E6DCD93481AB9F52553",
+			);
+		};
+		"C0193722BC980849E21301D9" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.cfbundle";
+			"includeInIndex" = 0;
+			"path" = "NotasTests.xctest";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"AB7E316BB600A8B34AA02D4C" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"E908254F9F3C930B858318B8",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"2005943E81F29FD441F81B3B" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"8D90DA3FE2961F1113E26600" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"B6FE5D6667D7D0552FD39EA8" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.designcraft.notastests";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/Notas.app/Notas";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"ENABLE_TESTABILITY" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"71FAD130CDAADCF64712E4E4" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.designcraft.notastests";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/Notas.app/Notas";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+			};
+		};
+		"5259C70FB4C14747C1D85E51" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"B6FE5D6667D7D0552FD39EA8",
+				"71FAD130CDAADCF64712E4E4",
+			);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"2DF615EAFCC900567B9E3A14" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+			"proxyType" = 1;
+			"remoteGlobalIDString" = "7EBF7D93D1B3B47ECBC60817";
+			"remoteInfo" = "Notas";
+		};
+		"3F92EE309263E4A557B81A2C" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "7EBF7D93D1B3B47ECBC60817";
+			"targetProxy" = "2DF615EAFCC900567B9E3A14";
+		};
+		"83E92CDA064EDC756885DE2F" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "NotasTests";
+			"productName" = "NotasTests";
+			"productType" = "com.apple.product-type.bundle.unit-test";
+			"productReference" = "C0193722BC980849E21301D9";
+			"buildConfigurationList" = "5259C70FB4C14747C1D85E51";
+			"buildPhases" = (
+				"AB7E316BB600A8B34AA02D4C",
+				"2005943E81F29FD441F81B3B",
+				"8D90DA3FE2961F1113E26600",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+				"3F92EE309263E4A557B81A2C",
+			);
+		};
+		"14DA136DB5D2EF0F99AC160A" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "NotasUITests.swift";
+			"sourceTree" = "<group>";
+		};
+		"80A3D11B3EF63FA3DC033E97" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "14DA136DB5D2EF0F99AC160A";
+		};
+		"8BAEDA1FF24EDA04C639FC5F" = {
+			"isa" = "PBXGroup";
+			"path" = "NotasUITests";
+			"sourceTree" = "<group>";
+			"children" = (
+				"14DA136DB5D2EF0F99AC160A",
+			);
+		};
+		"A5078D99CB903E936B2AEB2E" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.cfbundle";
+			"includeInIndex" = 0;
+			"path" = "NotasUITests.xctest";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"BF0DA3E82252729DCC01A740" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+				"80A3D11B3EF63FA3DC033E97",
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"1E1E35E239A85C342FDE8F91" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"96C5F0DE70B57DC021363F4F" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"DB268610FE0F24E336A7790F" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.designcraft.notasuitests";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0";
+				"TEST_TARGET_NAME" = "Notas";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"ENABLE_TESTABILITY" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"4E9C4E84579CBD8BEF700C4B" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.designcraft.notasuitests";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"CURRENT_PROJECT_VERSION" = "1";
+				"MARKETING_VERSION" = "1.0";
+				"TEST_TARGET_NAME" = "Notas";
+			};
+		};
+		"330F604163C5763B902AD060" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"DB268610FE0F24E336A7790F",
+				"4E9C4E84579CBD8BEF700C4B",
+			);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"4DEC531309CA94C2088A55CF" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+			"proxyType" = 1;
+			"remoteGlobalIDString" = "7EBF7D93D1B3B47ECBC60817";
+			"remoteInfo" = "Notas";
+		};
+		"476C9C37CD244164892927D9" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "7EBF7D93D1B3B47ECBC60817";
+			"targetProxy" = "4DEC531309CA94C2088A55CF";
+		};
+		"1856DFEB379EDAD87D7FCF0D" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "NotasUITests";
+			"productName" = "NotasUITests";
+			"productType" = "com.apple.product-type.bundle.ui-testing";
+			"productReference" = "A5078D99CB903E936B2AEB2E";
+			"buildConfigurationList" = "330F604163C5763B902AD060";
+			"buildPhases" = (
+				"BF0DA3E82252729DCC01A740",
+				"1E1E35E239A85C342FDE8F91",
+				"96C5F0DE70B57DC021363F4F",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+				"476C9C37CD244164892927D9",
+			);
+		};
+		"FBDC4F23F93125BBEEAE800C" = {
+			"isa" = "PBXGroup";
+			"name" = "Products";
+			"sourceTree" = "<group>";
+			"children" = (
+				"FE88ED4F4FC0F568FE8C0AB9",
+				"C0193722BC980849E21301D9",
+				"A5078D99CB903E936B2AEB2E",
+			);
+		};
+		"B28B7AF69320201D1CF206EB" = {
+			"isa" = "PBXGroup";
+			"sourceTree" = "<group>";
+			"children" = (
+				"9F24DD8577F827FB59E844C0",
+				"719BA4C0B894AB63EE8D3170",
+				"8BAEDA1FF24EDA04C639FC5F",
+				"FBDC4F23F93125BBEEAE800C",
+			);
+		};
+		"877A6BA951A2EA0025A2ABE8" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+			};
+		};
+		"959134B361DD7E21ADEA3164" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+			};
+		};
+		"247BF104A9AD002C539DA531" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"877A6BA951A2EA0025A2ABE8",
+				"959134B361DD7E21ADEA3164",
+			);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"98F54143AB4E86B28C3AFEE0" = {
+			"isa" = "PBXProject";
+			"attributes" = {
+				"BuildIndependentTargetsInParallel" = "YES";
+				"LastUpgradeCheck" = "1500";
+				"TargetAttributes" = {
+					"7EBF7D93D1B3B47ECBC60817" = {
+						"CreatedOnToolsVersion" = "15.0";
+					};
+					"83E92CDA064EDC756885DE2F" = {
+						"CreatedOnToolsVersion" = "15.0";
+						"TestTargetID" = "7EBF7D93D1B3B47ECBC60817";
+					};
+					"1856DFEB379EDAD87D7FCF0D" = {
+						"CreatedOnToolsVersion" = "15.0";
+						"TestTargetID" = "7EBF7D93D1B3B47ECBC60817";
+					};
+				};
+			};
+			"buildConfigurationList" = "247BF104A9AD002C539DA531";
+			"compatibilityVersion" = "Xcode 14.0";
+			"developmentRegion" = "pt";
+			"knownRegions" = (
+				"pt",
+				"en",
+				"Base",
+			);
+			"mainGroup" = "B28B7AF69320201D1CF206EB";
+			"productRefGroup" = "FBDC4F23F93125BBEEAE800C";
+			"projectDirPath" = "";
+			"projectRoot" = "";
+			"targets" = (
+				"7EBF7D93D1B3B47ECBC60817",
+				"83E92CDA064EDC756885DE2F",
+				"1856DFEB379EDAD87D7FCF0D",
+			);
+		};
+	};
+	"rootObject" = "98F54143AB4E86B28C3AFEE0";
+}

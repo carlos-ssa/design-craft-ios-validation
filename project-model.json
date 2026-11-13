@@ -1,0 +1,11 @@
+{
+  "generated_object_count": 45,
+  "targets": {
+    "Notas": "7EBF7D93D1B3B47ECBC60817",
+    "NotasTests": "83E92CDA064EDC756885DE2F",
+    "NotasUITests": "1856DFEB379EDAD87D7FCF0D"
+  },
+  "source_test_methods": 11,
+  "project_graph": "closed references verified",
+  "compilation": "not performed by generator"
+}

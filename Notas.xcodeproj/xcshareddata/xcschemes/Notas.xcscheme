@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Scheme LastUpgradeVersion="1500" version="1.7">
+  <BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES">
+    <BuildActionEntries>
+      <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7EBF7D93D1B3B47ECBC60817" BuildableName="Notas.app" BlueprintName="Notas" ReferencedContainer="container:Notas.xcodeproj" />
+      </BuildActionEntry>
+      <BuildActionEntry buildForTesting="YES" buildForRunning="NO" buildForProfiling="NO" buildForArchiving="NO" buildForAnalyzing="YES">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="83E92CDA064EDC756885DE2F" BuildableName="NotasTests.xctest" BlueprintName="NotasTests" ReferencedContainer="container:Notas.xcodeproj" />
+      </BuildActionEntry>
+      <BuildActionEntry buildForTesting="YES" buildForRunning="NO" buildForProfiling="NO" buildForArchiving="NO" buildForAnalyzing="YES">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1856DFEB379EDAD87D7FCF0D" BuildableName="NotasUITests.xctest" BlueprintName="NotasUITests" ReferencedContainer="container:Notas.xcodeproj" />
+      </BuildActionEntry>
+    </BuildActionEntries>
+  </BuildAction>
+  <TestAction buildConfiguration="Debug" shouldUseLaunchSchemeArgsEnv="YES">
+    <Testables>
+      <TestableReference skipped="NO">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="83E92CDA064EDC756885DE2F" BuildableName="NotasTests.xctest" BlueprintName="NotasTests" ReferencedContainer="container:Notas.xcodeproj" />
+      </TestableReference>
+      <TestableReference skipped="NO">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1856DFEB379EDAD87D7FCF0D" BuildableName="NotasUITests.xctest" BlueprintName="NotasUITests" ReferencedContainer="container:Notas.xcodeproj" />
+      </TestableReference>
+    </Testables>
+    <MacroExpansion>
+      <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7EBF7D93D1B3B47ECBC60817" BuildableName="Notas.app" BlueprintName="Notas" ReferencedContainer="container:Notas.xcodeproj" />
+    </MacroExpansion>
+  </TestAction>
+  <LaunchAction buildConfiguration="Debug" launchStyle="0" useCustomWorkingDirectory="NO" ignoresPersistentStateOnLaunch="NO" debugDocumentVersioning="YES" debugServiceExtension="internal" allowLocationSimulation="YES">
+    <BuildableProductRunnable runnableDebuggingMode="0">
+      <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7EBF7D93D1B3B47ECBC60817" BuildableName="Notas.app" BlueprintName="Notas" ReferencedContainer="container:Notas.xcodeproj" />
+    </BuildableProductRunnable>
+  </LaunchAction>
+  <AnalyzeAction buildConfiguration="Debug" />
+  <ArchiveAction buildConfiguration="Release" revealArchiveInOrganizer="YES" />
+</Scheme>

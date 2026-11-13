@@ -1,0 +1,9 @@
+# Uso da skill: fixture iOS Notas
+
+A skill `design-craft` e as referências `ios.md`, `interacao-acessibilidade.md` e `revisao-nativa.md` orientaram esta implementação nativa SwiftUI: lista e navegação do sistema, formulário com rótulos, texto escalável, mensagens de recuperação e confirmação de descarte. O projeto e o workflow Xcode são fornecidos separadamente; integrar os arquivos aos targets `Notas`, `NotasTests` e `NotasUITests` (iOS 17, Swift 5). Nenhum pacote externo é necessário.
+
+Título e conteúdo precisam conter caracteres não brancos. O título é aparado ao salvar. O rascunho é persistido a cada alteração e retomado ao abrir o app; salvar atualiza nota e remove rascunho na mesma gravação atômica. Erro de leitura bloqueia gravações e preserva o arquivo; falha de escrita mantém o texto em tela para nova tentativa. O arquivo fica em Application Support/NotasFixture/notes.json. `--fixture-reset` só remove esse arquivo quando combinado com `--uitesting`; não utilizar com dados que se deseja preservar.
+
+Os testes unitários propostos cobrem inclusão, edição, recarga, JSON inválido preservado, validação, repetição de salvamento e rascunho. Os seis testes de interface exercitam criação e relançamento, edição, recuperação de validação, descarte, nomes/papéis e texto grande. `--fixture-large-type`, combinado com `--uitesting`, injeta Dynamic Type no app para o teste: não altera nem testa a preferência do sistema.
+
+Execução futura: no macOS com Xcode e simulador iOS 17 ou posterior, integrar os targets e executar os testes do esquema pelo Xcode ou `xcodebuild test` com destino disponível. Revisar também teclado, tamanhos extremos, recuperação após encerramento pelo sistema, VoiceOver e ajustes reais do iOS. Estes arquivos não foram compilados nem executados em runtime nativo neste ambiente; nomes e comportamento de controles XCUI precisam de confirmação no simulador. Não há evidência de teste de VoiceOver ou de ajustes do sistema.

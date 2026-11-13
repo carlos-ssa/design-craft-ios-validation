@@ -1,0 +1,32 @@
+name: Native iOS validation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  simulator:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, resolved 2026-11-13
+      - name: Locate prepared fixture
+        shell: bash
+        run: |
+          if [ -f tools/run-native.py ]; then
+            echo "FIXTURE_ROOT=$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
+          elif [ -f outputs/validation-repos/ios-notas/tools/run-native.py ]; then
+            echo "FIXTURE_ROOT=$GITHUB_WORKSPACE/outputs/validation-repos/ios-notas" >> "$GITHUB_ENV"
+          else
+            echo "Native fixture is missing"
+            exit 2
+          fi
+      - name: Build and test on iOS Simulator
+        shell: bash
+        run: python3 "$FIXTURE_ROOT/tools/run-native.py"
+      - name: Upload native evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4, resolved 2026-11-13
+        with:
+          name: ios-native-evidence
+          path: ${{ env.FIXTURE_ROOT }}/evidence/
+          if-no-files-found: error
