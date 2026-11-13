@@ -8,7 +8,7 @@ App nativo SwiftUI para exercitar a Design Craft em iPhone/iPad. Inclui notas, c
 
 - `Notas/`: app SwiftUI, sem pacotes externos; iOS17 e Swift5.
 - `NotasTests/`: cinco métodos XCTest de estado, validação e persistência.
-- `NotasUITests/`: seis métodos XCUITest de fluxos, nomes/papéis e texto grande injetado.
+- `NotasUITests/`: sete métodos XCUITest de fluxos, nomes/papéis, texto grande injetado e auditoria automática de acessibilidade, com screenshots preservados.
 - `Notas.xcodeproj`: projeto gerado com esquema compartilhado, app e dois targets de teste.
 - `tools/generate-project.py`: gerador determinístico e verificação do grafo de referências.
 - `tools/run-native.py`: runner que exige macOS/Xcode e um Simulator real, guarda log e `.xcresult` e só aprova após ler contagens estruturadas.
@@ -22,11 +22,11 @@ python3 tools/run-native.py
 
 O runner escolhe um iPhone Simulator disponível, inicializa-o quando necessário, executa `xcodebuild test` e grava evidências em `evidence/`. `TEST_OUTPUT` permite escolher outro diretório. Não usa Apple Developer account ou assinatura de distribuição: o alvo de execução é Simulator.
 
-Erros de build, testes falhos, ausência de runtime ou resultado ilegível não viram aprovação. Os onze métodos planejados não entram no denominador de testes aprovados até serem executados e verificados.
+Erros de build, testes falhos, ausência de runtime ou resultado ilegível não viram aprovação. Os doze métodos planejados não entram no denominador de testes aprovados até serem executados e verificados.
 
 ## Execução remota preparada
 
-O workflow em `.github/workflows/ios-validation.yml` usa runner macOS e ações fixadas por commit. Ele aceita o fixture na raiz de um repositório de testes ou dentro deste workspace. Só tem disparo manual; nenhuma execução remota, publicação ou criação de repositório foi realizada nesta preparação. O consumo de runner depende da conta/plano do provedor.
+O workflow em `.github/workflows/ios-validation.yml` usa runner macOS15 Intel e ações fixadas por commit. Ele aceita o fixture na raiz de um repositório de testes ou dentro deste workspace. Só tem disparo manual. O usuário autorizou criar o repositório privado carlos-ssa/design-craft-ios-validation. A primeira execução terminou sem runner por capacidade ARM64, sem executar o código; a revisão Intel exige verificação própria. O consumo de runner depende da conta/plano do provedor.
 
 Para usá-lo, será necessário um repositório GitHub indicado pelo usuário e Actions habilitado. O artefato `ios-native-evidence` contém os resultados de cada execução; não se deve confiar apenas no check verde do job sem conferir `run.json` e `.xcresult`.
 

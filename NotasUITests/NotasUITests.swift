@@ -14,6 +14,13 @@ final class NotasUITests: XCTestCase {
         app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "notes.row."))
     }
 
+    private func keepScreenshot(_ name: String) {
+        let attachment = XCTAttachment(screenshot: app.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
     private func assertRow(title: String, body: String) {
         let row = rows.firstMatch
         XCTAssertTrue(row.waitForExistence(timeout: 5))
@@ -35,6 +42,7 @@ final class NotasUITests: XCTestCase {
     func testCreatePersistsAcrossRelaunch() {
         createNote()
         assertRow(title: "Reunião", body: "Próximos passos")
+        keepScreenshot("ios-note-reloaded")
         app.terminate()
         app.launchArguments = ["--uitesting"]
         app.launch()
@@ -58,6 +66,7 @@ final class NotasUITests: XCTestCase {
         app.buttons["notes.new"].tap()
         app.buttons["notes.save"].tap()
         XCTAssertTrue(app.staticTexts["notes.status"].waitForExistence(timeout: 5))
+        keepScreenshot("ios-form-validation")
         let title = app.textFields["notes.title"]
         title.tap(); title.typeText("Teste")
         let body = app.textViews["notes.body"]
@@ -91,5 +100,15 @@ final class NotasUITests: XCTestCase {
         app.launch()
         createNote()
         assertRow(title: "Reunião", body: "Próximos passos")
+        keepScreenshot("ios-large-type")
+    }
+
+    func testAccessibilityAuditAndVisualEvidence() throws {
+        keepScreenshot("ios-home")
+        try app.performAccessibilityAudit()
+        app.buttons["notes.new"].tap()
+        XCTAssertTrue(app.textFields["notes.title"].waitForExistence(timeout: 5))
+        keepScreenshot("ios-form")
+        try app.performAccessibilityAudit()
     }
 }

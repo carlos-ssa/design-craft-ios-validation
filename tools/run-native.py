@@ -47,6 +47,12 @@ try:
 except (ValueError,KeyError,TypeError) as error:
     report['reason']='Unrecognized xcresult summary; no successful count inferred: '+str(error);finish('result_unverified',3)
 report.update(passed_tests=passed,failed_tests=failed,skipped_tests=skipped,total_tests=total,expected_test_methods=expected)
+attachment_out=OUT/'attachments'
+export=subprocess.run(['xcrun','xcresulttool','export','attachments','--path',str(bundle),'--output-path',str(attachment_out)],capture_output=True,text=True)
+report['attachments_export_exit']=export.returncode
+report['screenshots']=[str(p.relative_to(OUT)) for p in attachment_out.rglob('*.png')] if attachment_out.exists() else []
+report['visual_review_pending']=True
+if export.returncode!=0:report['attachments_export_warning']=export.stderr
 if total<expected or passed<expected or failed>0:
     report['reason']='Full planned set did not pass; skipped or missing tests are not successful evidence'
     finish('native_checks_incomplete_or_failed',1)
